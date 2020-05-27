@@ -1,5 +1,6 @@
 package com.saspes.opencv;
 
+import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
@@ -8,7 +9,7 @@ import org.opencv.imgproc.Imgproc;
 
 public class Utils {
 
-    public static void blueprint(Mat transparent, Mat blueprint) {
+    public static void blueprint(Mat transparent, Mat blueprint, String name) {
         double grid[] = {255, 255, 255, 150};
         for (int y = 0; y < transparent.rows(); ++y) {
             for (int x = 0; x < transparent.cols(); ++x) {
@@ -21,7 +22,7 @@ public class Utils {
 
             }
         }
-        Imgcodecs.imwrite("blueprint.png", blueprint);
+        Imgcodecs.imwrite(name, blueprint);
     }
 
     public static Mat backgraund(Mat imgMat) {
@@ -32,20 +33,30 @@ public class Utils {
         return blueprint;
     }
 
+    // not needed
     public static Mat edgeDetection(Mat imgMat) {
         Mat detectedEdges = new Mat();
         Imgproc.cvtColor(imgMat, detectedEdges, Imgproc.COLOR_BGR2GRAY); // convert to grayscale
-        Imgproc.blur(detectedEdges, detectedEdges, new Size(3, 3));  // reduce noise with a 3x3 kernel
+        Imgproc.blur(detectedEdges, detectedEdges, new Size(5, 5));  // reduce noise with a 3x3 kernel
         // canny detector, with ratio of lower:upper threshold of 3:1
         Double threshold = 50.0;
         Imgproc.Canny(detectedEdges, detectedEdges, threshold, threshold * 3);
         return detectedEdges;
     }
 
-    public static Mat transparetn(Mat detectedEdges) {
+    public static Mat transparetn(Mat imgMat) {
+        // replace gray with white
+        Mat threshold = new Mat();
+        Imgproc.threshold(imgMat, threshold, 100, 255, Imgproc.THRESH_BINARY);
+
+        // convert to grayscale
+        Mat grayscale = new Mat();
+        Imgproc.cvtColor(threshold, grayscale, Imgproc.COLOR_BGR2GRAY);
+
         // transparent
         Mat transparent = new Mat();
-        Imgproc.cvtColor(detectedEdges, transparent, Imgproc.COLOR_GRAY2RGBA);
+        Imgproc.cvtColor(grayscale, transparent, Imgproc.COLOR_GRAY2RGBA);
+
         // start at row 0/col 0
         for (int y = 0; y < transparent.rows(); ++y) {
             for (int x = 0; x < transparent.cols(); ++x) {
@@ -56,6 +67,17 @@ public class Utils {
                 }
             }
         }
+
         return transparent;
+    }
+
+    public static Mat invertImage(Mat imgMat) {
+        //Apply gaussian blur to remove noise
+        Imgproc.GaussianBlur(imgMat, imgMat, new Size(5, 5), 0);
+
+        //Invert the image
+        Core.bitwise_not(imgMat, imgMat);
+
+        return imgMat;
     }
 }
