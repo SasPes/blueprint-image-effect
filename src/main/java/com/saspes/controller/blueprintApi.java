@@ -24,7 +24,7 @@ public class blueprintApi {
     public @ResponseBody
     byte[] blueprint(@RequestParam String pngImage) throws IOException {
         System.out.println("pngImage = " + pngImage);
-        String imgPath = System.getProperty("user.dir") + "\\" + imageProcessing.blueprint(pngImage);
+        String imgPath = System.getProperty("user.dir") + "/" + imageProcessing.blueprint(pngImage);
         final File initialFile = new File(imgPath);
         final InputStream in = new DataInputStream(new FileInputStream(initialFile));
         return IOUtils.toByteArray(in);
