@@ -18,6 +18,7 @@ public class ImageProcessingImpl implements ImageProcessing {
     public String blueprint(String pngImage) {
         // String pngImage = "https://patentimages.storage.googleapis.com/76/c8/67/c6c729c7eabb9d/US4393673-drawings-page-2.png";
         String imgName = pngImage.substring(pngImage.lastIndexOf('/') + 1);
+        System.out.println("imgName = " + imgName);
         try {
             BufferedInputStream in = new BufferedInputStream(new URL(pngImage).openStream());
             FileOutputStream fileOutputStream = new FileOutputStream(imgName);
@@ -35,7 +36,8 @@ public class ImageProcessingImpl implements ImageProcessing {
 //                img_path = img_path.substring(1);
 //            }
             
-            String img_path = System.getProperty("user.dir") + "\\" + imgName;
+            String img_path = System.getProperty("user.dir") + "/" + imgName;
+            System.out.println("img_path = " + img_path);
             Mat imgMat = Imgcodecs.imread(img_path);
 
             Utils.blueprint(
