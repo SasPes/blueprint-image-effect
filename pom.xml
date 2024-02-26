@@ -10,7 +10,7 @@
 
     <name>Blueprint Image Effect</name>
     <description>Blueprint Image Effect - BIE</description>
-    
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
