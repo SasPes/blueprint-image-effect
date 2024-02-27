@@ -2,11 +2,11 @@
 
 [![License](https://img.shields.io/github/license/saspes/blueprint-image-effect.svg)](https://opensource.org/licenses/MIT) [![Build Status](https://travis-ci.org/SasPes/blueprint-image-effect.svg?branch=master)](https://travis-ci.org/SasPes/blueprint-image-effect) [![Coverage Status](https://coveralls.io/repos/github/SasPes/blueprint-image-effect/badge.svg?branch=master)](https://coveralls.io/github/SasPes/blueprint-image-effect?branch=master) [![Paypal](https://img.shields.io/badge/donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=TRTGCN324YEXA&currency_code=EUR&source=url)
 
+![blueprint](/examples/bp.png)
+
 https://blueprint-image-effect.onrender.com/blueprint?pngImage=
 
-ℹ️ Hobby projects with slow Docker instance 512 MB (RAM) & 0.1 CPU 
-
-![blueprint](/examples/bp.png)
+:info:️ Hobby projects with slow Docker instance 512 MB (RAM) & 0.1 CPU
 
 ### Docker
 ```
