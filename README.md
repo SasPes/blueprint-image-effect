@@ -6,7 +6,7 @@
 
 https://blueprint-image-effect.onrender.com/blueprint?pngImage=
 
-:information_desk_person: Hobby projects with slow Docker instance 512 MB (RAM) & 0.1 CPU
+> :triumph: Hobby projects with slow Docker instance 512 MB (RAM) & 0.1 CPU
 
 ### Docker
 ```
