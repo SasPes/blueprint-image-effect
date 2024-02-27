@@ -4,4 +4,18 @@
 
 https://blueprint-image-effect.onrender.com/blueprint?pngImage=
 
-![blueprint](/examples/blueprint.png) ![no-blueprint](/examples/US3402581-drawings-page.png)
+![blueprint](/examples/bp.png)
+
+### Docker
+```
+mvn package
+
+# build
+docker build -t saspesdocker/blueprint-image-effect .
+
+# push to Docker Hub
+docker push saspesdocker/blueprint-image-effect:latest
+
+# run
+docker container run saspesdocker/blueprint-image-effect -p 8080:8080
+```
