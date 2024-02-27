@@ -4,6 +4,8 @@
 
 https://blueprint-image-effect.onrender.com/blueprint?pngImage=
 
+ℹ️ Hobby projects with slow Docker instance 512 MB (RAM) & 0.1 CPU 
+
 ![blueprint](/examples/bp.png)
 
 ### Docker
